@@ -22,8 +22,8 @@ api.interceptors.response.use(
     if (error.response?.status === 401) {
       localStorage.removeItem("authToken");
       // Only redirect if not already on login page
-      if (!window.location.pathname.includes("/login-page")) {
-        window.history.pushState({}, "", "/login-page");
+      if (!window.location.pathname.includes("/signin")) {
+        window.history.pushState({}, "", "/signin");
       }
     }
     return Promise.reject(error);

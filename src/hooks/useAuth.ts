@@ -8,7 +8,7 @@ export const useAuth = () => {
 
   const logout = useCallback(() => {
     localStorage.removeItem("authToken");
-    navigate("/login-page");
+    navigate("/signin");
   }, [navigate]);
 
   return { isAuthenticated, logout };

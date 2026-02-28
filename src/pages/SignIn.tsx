@@ -7,7 +7,7 @@ import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { GraduationCap, Loader2 } from "lucide-react";
 
-const Login = () => {
+const SignIn = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -46,7 +46,7 @@ const Login = () => {
 
         <Card className="shadow-lg border-border/50">
           <CardHeader className="pb-4">
-            <CardTitle className="text-lg">Login</CardTitle>
+            <CardTitle className="text-lg">Sign In</CardTitle>
             <CardDescription>Enter your credentials to continue</CardDescription>
           </CardHeader>
           <CardContent>
@@ -89,4 +89,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default SignIn;
