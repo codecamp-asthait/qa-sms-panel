@@ -1,0 +1,11 @@
+[[redirects]]
+  from = "/api/*"
+  to = "http://54.255.195.111:5171/api/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/login"
+  to = "http://54.255.195.111:5171/login"
+  status = 200
+  force = true
