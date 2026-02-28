@@ -1,0 +1,6 @@
+# Proxy API calls to your HTTP backend
+/api/*    http://54.255.195.111:5171/api/:splat    200
+/login    http://54.255.195.111:5171/login        200
+
+# Optional: redirect all frontend routes to index.html (SPA routing)
+/*    /index.html    200
