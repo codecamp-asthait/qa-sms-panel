@@ -9,3 +9,8 @@
   to = "http://54.255.195.111:5171/login"
   status = 200
   force = true
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

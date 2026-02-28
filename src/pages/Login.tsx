@@ -27,7 +27,7 @@ const Login = () => {
       localStorage.setItem("authToken", res.data.authToken);
       navigate("/dashboard");
     } catch (err: any) {
-      setError(err.response?.data?.message || "Invalid credentials");
+      setError(err.response?.data?.error || "Invalid credentials");
     } finally {
       setLoading(false);
     }
