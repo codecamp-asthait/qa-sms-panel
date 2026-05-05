@@ -2,6 +2,7 @@ import { Input } from "@/components/ui/input";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Button } from "@/components/ui/button";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Eye, Pencil, Trash2, Loader2, ArrowUpDown, ChevronUp, ChevronDown } from "lucide-react";
 import { useState, useMemo } from "react";
 
@@ -9,6 +10,8 @@ interface Column {
   key: string;
   label: string;
   filterable?: boolean;
+  filterType?: "text" | "select";
+  filterOptions?: string[];
 }
 
 interface DataTableProps {
@@ -156,12 +159,27 @@ const DataTable = ({
               {columns.map((col) => (
                 <TableHead key={`filter-${col.key}`} className="py-2">
                   {col.filterable !== false ? (
-                    <Input
-                      placeholder={`Filter by ${col.label.toLowerCase()}...`}
-                      value={columnFilters[col.key] || ""}
-                      onChange={(e) => onColumnFilterChange(col.key, e.target.value)}
-                      className="h-8 text-xs"
-                    />
+                    col.filterType === "select" ? (
+                      <Select value={columnFilters[col.key] || ""} onValueChange={(value) => onColumnFilterChange(col.key, value)}>
+                        <SelectTrigger className="h-8 text-xs">
+                          <SelectValue placeholder={`Filter by ${col.label.toLowerCase()}...`} />
+                        </SelectTrigger>
+                        <SelectContent>
+                          {col.filterOptions?.map((option) => (
+                            <SelectItem key={option} value={option}>
+                              {option}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                    ) : (
+                      <Input
+                        placeholder={`Filter by ${col.label.toLowerCase()}...`}
+                        value={columnFilters[col.key] || ""}
+                        onChange={(e) => onColumnFilterChange(col.key, e.target.value)}
+                        className="h-8 text-xs"
+                      />
+                    )
                   ) : null}
                 </TableHead>
               ))}

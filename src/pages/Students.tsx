@@ -11,7 +11,7 @@ import { toast } from "sonner";
 const columns = [
   { key: "name", label: "Name", filterable: true },
   { key: "email", label: "Email", filterable: true },
-  { key: "department", label: "Department", filterable: true },
+  { key: "department", label: "Department", filterable: true, filterType: "select", filterOptions: ["CSE", "BBA", "MBA", "LAW", "PHARMACY", "ENGLISH"] },
   { key: "registrationId", label: "Registration ID", filterable: true },
   { key: "age", label: "Age", filterable: true },
 ];
